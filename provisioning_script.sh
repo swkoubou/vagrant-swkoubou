@@ -18,7 +18,8 @@ yum -y install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
 /sbin/chkconfig httpd on
 /sbin/service httpd start
 source /etc/profile.d/bash_completion.sh
-PATH=$PATH:/opt/rh/devtoolset-2/root/usr/bin
+echo PATH=$PATH:/opt/rh/devtoolset-2/root/usr/bin >> /etc/profile
+echo export PATH >> /etc/profile
 
 # Disable iptables
 /sbin/chkconfig iptables off
