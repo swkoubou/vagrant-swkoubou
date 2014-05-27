@@ -31,7 +31,7 @@ tar xvf Python-2.7.5.tar.bz2
 cd Python-2.7.5
 ./configure --with-threads --enable-shared --prefix=/usr/local
 make && make altinstall
-rm -f Python-2.7.5.tar.bz2
+rm -f ~/Python-2.7.5.tar.bz2
 ln -s /usr/local/lib/libpython2.7.so.1.0 /lib64/
 # STEP3 install Python3.4.1
 cd
@@ -40,16 +40,26 @@ tar xvf Python-3.4.1.tar.xz
 cd Python-3.4.1
 ./configure --with-threads --enable-shared --prefix=/usr/local
 make && make altinstall
-rm -f Python-3.4.1.tar.xz
+rm -f ~/Python-3.4.1.tar.xz
 ln -s /usr/local/lib/libpython3.4m.so.1.0 /lib64/
 # STEP4 librally link
 ln -s /usr/local/lib/libpython* /usr/lib
 /sbin/ldconfig -v
-ln -s /usr/local/bin/python2.7 /usr/local/bin/python
+# ln -s /usr/local/bin/python2.7 /usr/local/bin/python # default python to python2.7
 ln -s /usr/local/include/python2.7 /usr/include/python2.7
 ln -s /usr/local/include/python3.4 /usr/include/python3.4
 # STEP5 sudo python to python2.7
 sed -i -e "s/\(secure_path = \)\(\/sbin:\/bin:\/usr\/sbin:\/usr\/bin\)/\1\/usr\/local\/bin:\2/g" /etc/sudoers
+# STEP6 install pip and virtualenv
+sudo yum install python-setuptools -y
+sudo easy_install pip
+sudo pip install virtualenv{,wrapper}
+echo "source `which virtualenvwrapper.sh`" >> /etc/bashrc
+source `which virtualenvwrapper.sh`
+# STEP7 make virtual environment
+mkvirtualenv py27 -p /usr/local/bin/python2.7
+mkvirtualenv py34 -p /usr/local/bin/python3.4
+
 
 # httpd on
 echo "##### httpd on #####"
