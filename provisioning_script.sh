@@ -15,7 +15,7 @@ cd $HOME
 # Install packages
 echo "##### Install packages #####"
 yum -y update
-yum -y --enablerepo=epel,remi install httpd bash-completion vim man php postfix mysql nodejs
+yum -y --enablerepo=epel,remi install httpd bash-completion vim man php postfix mysql nodejs git
 yum -y install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
 echo "export PATH=/usr/local/bin:$PATH:/opt/rh/devtoolset-2/root/usr/bin" >> /etc/bashrc
 export PATH=/usr/local/bin:$PATH:/opt/rh/devtoolset-2/root/usr/bin
