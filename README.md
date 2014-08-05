@@ -1,7 +1,8 @@
 swkoubou.vagrant
 ================
 
-vagrant
+vagrant  
+python•”•ª‚Í‚¤‚Ü‚­“®‚©‚È‚¢‚©‚àB‚¢‚ç‚È‚©‚Á‚½‚çÁ‚µ‚Ä‚­‚¾‚³‚¢B
 
 sahara
 ---------
